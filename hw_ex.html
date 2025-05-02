@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color:#d3d3d3;
+        }
+        h1{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            opacity: 0.7;
+        }
+        .ssec1 {
+            color: white;
+            display: flex;
+            gap: 10px;
+            padding: 1rem;
+            margin: 0.5rem;
+            width: 100%;
+            padding: 1.5rem 3rem; 
+            background-color: white;
+            border-radius: 20px;
+        }
+        #box1{
+            background-color: lightgreen;
+            padding: 1rem;
+            max-width: fit-content;
+            border-radius: 5px;
+        }
+        #box2{
+            width: 10vw;
+            height: 20vh;
+            background-color: lightgreen;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        #box3{
+            width: 30%;
+            height: 20%;
+            background-color: lightgreen;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        #box4{
+            width: 15vmin;
+            height: 20vmin;
+            background-color: lightgreen;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        #box5{
+            width: 20em;
+            font-size: 2em;
+            background-color: lightgreen;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .sec2{
+            width: 100%;
+            padding: 0 3rem; 
+        }
+        .ssec2{
+            background-color: white	;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: grid;
+            /* grid-template-columns: repeat(autofit,minmax(100px,1fr)); */
+            grid-template-columns: repeat(4,1fr);
+            /* grid-template-rows: repeat(3,1fr); */
+            row-gap: 20px;
+            column-gap: 50px;
+        }
+        .ssec2 .card{
+            text-align: center;
+            background-color:#d3d3d3 ;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        .sec3{
+            width: 100%;
+            padding: 0 3rem; 
+        }
+        .ssec3{
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            row-gap: 20px;
+            column-gap: 50px;
+        }
+        .ssec3 .card{
+            text-align: center;
+            background-color:#d3d3d3 ;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        .sec5{
+            width: 100%;
+            text-align: center;
+        }
+        .sec5 img{
+            margin:25px 10px;
+            width: 25%;
+        }
+        .sec4{
+            width: 100%;
+            padding: 0 3rem;
+        }
+        .ssec4{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4,250px);
+            gap:50px;
+        }
+        .ssec4 .card{
+            position: relative;
+            margin: 25px 0;;
+        }
+        .ssec4 .card h4{
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            display: none;
+        }
+        .ssec4 .card:hover h4{
+            display:block;
+            font-size: 1.2rem;
+        }
+        .ssec4 .card img{
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .ssec4 .card img{
+            filter: grayscale();
+            transition: 0.3s;
+        }
+        .ssec4 .card{
+            overflow: hidden;
+        }
+        .ssec4 .card:hover img{
+            filter: none;
+            transform: scale(1.5);
+        }
+        .ssec4 .card:hover{
+            transform: scale(1.1);
+        }
+
+        .sec6{
+            padding: 3rem 10rem;
+            display: flex;
+        }
+        .sec6 h2, .sec6 p{
+            text-align: left;
+            font-size: 1.5rem;
+        }
+        /* .circle {
+  float: left;
+  width: 200px;
+  height: 200px;
+  shape-outside: circle(); 
+  clip-path: circle();     
+  margin: 20px;
+} */
+        .sec7{
+            width: 100%;
+            padding: 0 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+        .x-mand{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            border: 2px solid black;
+            padding: 0.3rem;
+            gap: 10px;
+        }
+        .x-mand .box{
+            flex: 1 0 150px;
+            text-align: center;
+            padding: 5rem;
+            scroll-snap-align: start;
+            background-color: lightcoral;
+        }
+        .y-mand{
+            width: 200px;
+            height: 200px;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 2px solid black;
+            padding: 0.3rem;
+        }
+        .y-mand .box{
+            flex: 1 0 150px;
+            background-color: lightgoldenrodyellow;
+        }
+
+        .both-mand{
+            width: 200px;
+            height:200px;
+            padding: 0.3rem;
+            border: 2px solid black;
+            overflow: scroll;
+            scroll-snap-type: both mandatory;
+            display: grid;
+            grid-template-columns: repeat(3,150px);
+            gap: 20px;
+        }
+        .both-mand .box{
+            background-color: lightpink;
+            width: 150px;
+            height: 150px;
+            scroll-snap-align: start;
+        }
+        .x-prox{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    border: 2px solid black;
+    padding: 0.3rem;
+    gap: 10px;
+}
+.x-prox .box{
+    flex: 1 0 150px;
+    text-align: center;
+    padding: 5rem;
+    scroll-snap-align: start;
+    background-color: lightcoral;
+}
+.y-prox{
+    width: 200px;
+    height: 200px;
+    overflow-y: auto;
+    scroll-snap-type: y proximity;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid black;
+    padding: 0.3rem;
+}
+.y-prox .box{
+    flex: 1 0 150px;
+    background-color: lightgoldenrodyellow;
+}
+.both-prox{
+    width: 200px;
+    height:200px;
+    padding: 0.3rem;
+    border: 2px solid black;
+    overflow: scroll;
+    scroll-snap-type: both proximity;
+    display: grid;
+    grid-template-columns: repeat(3,150px);
+    gap: 20px;
+}
+.both-prox .box{
+    background-color: lightpink;
+    width: 150px;
+    height: 150px;
+    scroll-snap-align: start;
+}
+
+    </style>
+</head>
+
+<body>
+    <section class="sec1">
+        <h2 style="text-align: center; margin: 0.5rem;">CSS Units Practice</h2>
+        <section class="ssec1">
+            <div id="box1">
+                <p>This box uses <strong>rem</strong> for padding and px for max-width.</p>
+            </div>
+            <div id="box2">
+                <p>This box uses <strong>vw</strong> for width and <strong>vh</strong> for height.</p>
+            </div>
+            <div id="box3">
+                <p>This box uses <strong>%</strong> for width and height.</p>
+            </div>
+            <div id="box4">
+                <p>This box uses <strong>vmin</strong> for width and height.</p>
+            </div>
+            <div id="box5">
+                <p>This box uses <strong>em</strong> for width and font-size.</p>
+            </div>
+        </section>
+    </section>
+
+    <section class="sec2">
+        <h1 >Collectin Random Items</h1>
+        <p>Discover random items we are collecting today. Who knows what we might find</p>
+        <section class="ssec2">
+            <div class="card">
+                <img src="" alt="Socks">
+                <h3>Socks</h3>
+                <p>The mystery of always losing one sock...</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Socks">
+                <h3>Socks</h3>
+                <p>The mystery of always losing one sock...</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Socks">
+                <h3>Socks</h3>
+                <p>The mystery of always losing one sock...</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Socks">
+                <h3>Socks</h3>
+                <p>The mystery of always losing one sock...</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Socks">
+                <h3>Socks</h3>
+                <p>The mystery of always losing one sock...</p>
+            </div>
+        </section>
+    </section>
+
+    <section class="sec3">
+        <h1 >Masonry Layout Mode!</h1>
+        <section class="ssec3">
+            <div class="card">
+                <img src="" alt="Laptops">
+                <h3>Laptops</h3>
+                <p>How many laptops can one person have?</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Laptops">
+                <h3>Laptops</h3>
+                <p>How many laptops can one person have?</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Laptops">
+                <h3>Laptops</h3>
+                <p>How many laptops can one person have?</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Laptops">
+                <h3>Laptops</h3>
+                <p>How many laptops can one person have?</p>
+            </div>
+            <div class="card">
+                <img src="" alt="Laptops">
+                <h3>Laptops</h3>
+                <p>How many laptops can one person have?</p>
+            </div>
+        </section>
+    </section>
+
+    <section class="sec4">
+        <h3>CSS Image Hover Effects Gallery</h3>
+        <section class="ssec4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h4>Zoom Effect</h4>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h4>Zoom Effect</h4>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h4>Zoom Effect</h4>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <h4>Zoom Effect</h4>
+            </div>
+        </section>
+    </section>
+
+    <section class="sec5">
+        <h3>Masking Image</h3>
+        <img src="https://images.unsplash.com/photo-1726064855857-4540ed3834db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img  style="mask-image: linear-gradient(to right, black, transparent); " src="https://images.unsplash.com/photo-1726064855857-4540ed3834db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    </section>
+
+    <!--Didnt Understand
+     <section class="sec6">
+            <img class="circle" src="https://images.unsplash.com/photo-1745666606096-9776c7e71bf6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D" alt="">
+
+<p>This is some text that will wrap around the circle image instead of a rectangle. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste est incidunt quos nobis voluptatum sint perferendis voluptatibus repudiandae recusandae iusto in amet maxime ipsa, repellendus dolore soluta nulla ut quae reprehenderit. Deserunt culpa ipsa mollitia, fugiat quas ipsum fugit, est inventore amet reiciendis facere dolorum, praesentium suscipit nemo. Aperiam nihil natus necessitatibus temporibus. Cum deleniti hic, doloribus ea quos adipisci iure illo error veniam quas, ducimus accusantium necessitatibus quod blanditiis tenetur, repellat a architecto culpa amet! Possimus quasi sunt totam quam tempore laboriosam saepe iusto et. Veritatis consequatur deserunt expedita cupiditate recusandae id, suscipit molestiae aut voluptate? Eius, fuga non soluta sequi, magnam temporibus veniam quia reprehenderit quaerat, distinctio dolores nemo alias? Debitis veritatis consequatur sed hic laborum odit voluptates odio corrupti pariatur tempore voluptatibus blanditiis suscipit et, quibusdam ut exercitationem ea? Eos et asperiores alias atque recusandae illum iure labore ad itaque, est eveniet corrupti similique quibusdam tenetur, dolorum facere cumque odio odit. Rem natus asperiores vero adipisci eligendi, non neque earum soluta cumque accusamus enim officia totam minus culpa quasi provident quod dignissimos omnis iure animi, molestias rerum autem nihil placeat. Illum, laboriosam aliquid maxime vero odio obcaecati, fugiat doloribus incidunt ratione dicta tempore quia numquam at, quos alias culpa sit sunt sint deleniti enim suscipit! Laborum corrupti, impedit eaque velit accusantium inventore unde culpa nulla exercitationem dolorum quam vel explicabo neque sed quod. Nesciunt in officiis voluptatum explicabo, vero facere itaque corrupti ut quos. Soluta, culpa impedit. Asperiores ullam autem maiores nemo? Doloremque officiis omnis accusantium incidunt odio distinctio nulla numquam veritatis facilis eveniet, nisi, nesciunt obcaecati voluptates fuga quibusdam, est debitis sequi sapiente alias magni quam provident quae deleniti? Provident aperiam illum ad, in quos assumenda est! A, nisi veniam nulla, aut nesciunt nam dolore assumenda, totam quod aperiam mollitia laboriosam labore neque? Impedit, ratione quo.</p> 
+    </section>-->
+
+    <section class="sec7">
+        <h6>Examples of scroll snap</h6>
+        <p>scroll-snap-type:x mandatory;</p>
+        <div class="x-mand">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+        <p>scroll-snap-type:y mandatory;</p>
+        <div class="y-mand">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+        <p>scroll-snap-type:both mandatory;</p>
+        <div class="both-mand">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+
+        <p>scroll-snap-type: x proximity;</p>
+        <div class="x-prox">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+
+        <p>scroll-snap-type: y proximity;</p>
+        <div class="y-prox">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+
+        <p>scroll-snap-type: both proximity;</p>
+        <div class="both-prox">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+        
+    </section>
+</body>
+
+</html>
